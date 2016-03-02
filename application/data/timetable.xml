@@ -1,4 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <schedule>
+	<year>2016</year>
+	<term>Winter</term>
+	<set>4S</set>
+	<daysofweek>
+		<day name="Monday">		
+			<booking time="9:30-11:20">
+				<course>BLAW 3600</course>
+				<building>sw3</building>
+				<room>4785</room>
+				<instructor>Catherine Ryan</instructor>
+				<type>Lab</type>
+			</booking>
+			<booking time="11:30-12:20">
+				<course>OS 4735</course>
+				<building>sw1</building>
+				<room>4735</room>
+				<instructor>Mirela Gutica</instructor>
+				<type>Lecture</type>			
+			</booking>
+			<booking time="12:30-14:20">
+				<course>OS 4735</course>
+				<building>se12</building>
+				<room>320</room>
+				<instructor>Mirela Gutica</instructor>
+				<type>Lab</type>				
+			</booking>			
+		</day>	
+
+		<day name="Tuesday">
+			<booking time="8:30-10:20">
+				<course>IOS 4735</course>
+				<building>se12</building>
+				<room>325</room>
+				<instructor>D'Arcy Smith</instructor>
+				<type>Lab</type>	
+			</booking>
+			<booking time="11:30-12:20">
+				<course>GRAPHIC 4560</course>
+				<building>sw5</building>
+				<room>1850</room>
+				<instructor>Brenda Fine</instructor>
+				<type>Lecture</type>	
+			</booking>
+			<booking time="14:30-15:20">
+				<course>SDEV 4711</course>
+				<building>sw5</building>
+				<room>1840</room>
+				<instructor>Jim Parry</instructor>
+				<type>Lecture</type>	
+			</booking>
+			<booking time="15:30-17:20">
+				<course>GRAPHIC 4560</course>
+				<building>se12</building>
+				<room>322</room>
+				<instructor>Joseph Lo</instructor>
+				<type>Lab</type>	
+			</booking>			
+		</day>
+		
+		<day name="Wednesday">
+			<booking time="9:30-11:20">
+				<course>SDEV 4711</course>
+				<building>se12</building>
+				<room>320</room>
+				<instructor>Jim Parry</instructor>
+				<type>Lab</type>	
+			</booking>
+			<booking time="13:30-14:20">
+				<course>OS 4735</course>
+				<building>sw1</building>
+				<room>1205</room>
+				<instructor>Mirela Gutica</instructor>
+				<type>Lecture</type>				
+			</booking>				
+		</day>
+		
+		<day name="Thursday">
+			<booking time="8:30-10:20">
+				<course>ASP 4976</course>
+				<building>se12</building>
+				<room>308</room>
+				<instructor>Medhat Elmasry</instructor>
+				<type>Lab</type>				
+			</booking>
+			<booking time="11:30-12:20">
+				<course>OS 4735</course>
+				<building>sw3</building>
+				<room>1710</room>
+				<instructor>Mirela Gutica</instructor>
+				<type>Lecture</type>				
+			</booking>
+			<booking time="12:30-13:20">
+				<course>ASP 4976</course>
+				<building>se12</building>
+				<room>308</room>
+				<instructor>Medhat Elmasry</instructor>
+				<type>Lab</type>				
+			</booking>			
+		</day>
+		
+		<day name="Friday">
+			<booking time="8:30-10:20">
+				<course>BLAW 3600</course>
+				<building>sw5</building>
+				<room>1840</room>
+				<instructor>Catherine Ryan</instructor>
+				<type>Lecture</type>
+			</booking>
+			<booking time="10:30-12:20">
+				<course>ASP 4976</course>
+				<building>se12</building>
+				<room>308</room>
+				<instructor>Medhat Elmasry</instructor>
+				<type>Lab</type>				
+			</booking>
+			<booking time="12:30-13:20">
+				<course>GRAPHIC 4560</course>
+				<building>sw3</building>
+				<room>1750</room>
+				<instructor>Brenda Fine</instructor>
+				<type>Lecture</type>	
+			</booking>
+			<booking time="14:30-17:20">
+				<course>IOS 4735</course>
+				<building>se12</building>
+				<room>325</room>
+				<instructor>D'Arcy Smith</instructor>
+				<type>Lab</type>	
+			</booking>			
+		</day>
+		
+	</daysofweek>
+
 </schedule>
