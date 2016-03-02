@@ -1,13 +1,36 @@
-<!ELEMENT schedule (days|courses|periods)>
+<!ELEMENT schedule (year, term, set, (days|courses|periods))>
 <!ELEMENT periods (timeslot*)>
+
+
+
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT term (#PCDATA)>
+<!ELEMENT set (#PCDATA)>
+
+
+
+<!ELEMENT daysofweek (day*) >
+<!ELEMENT day (booking*)>
+<!ATTLIST day name CDATA #REQUIRED>
+
+
+<!ELEMENT courses (course*)>
+<!ELEMENT course (booking*)>
+<!ATTLIST course name CDATA #REQUIRED>
+
+
+
+
+
 <!ELEMENT timeslot (booking*)>
+
 <!ATTLIST timeslot time CDATA #REQUIRED>
-<!ELEMENT booking (day?, time?, course?, instructor, building, room)>
+<!ELEMENT booking (day?, course?, instructor, building, room, type)>
 <!ATTLIST booking day CDATA #IMPLIED>
 
 <!ELEMENT day (#PCDATA)>
-<!ELEMENT time (#PCDATA)>
 <!ELEMENT course (#PCDATA)>
 <!ELEMENT instructor (#PCDATA)>
 <!ELEMENT building (#PCDATA)>
 <!ELEMENT room (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
