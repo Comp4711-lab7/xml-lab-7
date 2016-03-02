@@ -1,4 +1,4 @@
-<!ELEMENT schedule (year, term, set, (days|courses|periods))>
+<!ELEMENT schedule (year, term, set, (daysofweek|courses|periods))>
 <!ELEMENT periods (timeslot*)>
 
 
@@ -25,11 +25,11 @@
 <!ELEMENT timeslot (booking*)>
 
 <!ATTLIST timeslot time CDATA #REQUIRED>
-<!ELEMENT booking (day?, course?, instructor, building, room, type)>
-<!ATTLIST booking day CDATA #IMPLIED>
+<!ELEMENT booking (dayofweek?, coursename?, instructor, building, room, type)>
+<!ATTLIST booking day CDATA #IMPLIED time CDATA #IMPLIED>
 
-<!ELEMENT day (#PCDATA)>
-<!ELEMENT course (#PCDATA)>
+<!ELEMENT dayofweek (#PCDATA)>
+<!ELEMENT coursename (#PCDATA)>
 <!ELEMENT instructor (#PCDATA)>
 <!ELEMENT building (#PCDATA)>
 <!ELEMENT room (#PCDATA)>
