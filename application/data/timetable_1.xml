@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE schedule SYSTEM "timetable.dtd">
+<schedule>
+    <periods>
+        <timeslot time="12:30-1:30">
+            <booking day="Monday">
+                <course>Operating Systems</course>
+                <instructor>Mirela Gutica</instructor>
+                <building>sw1</building>
+                <room>1205</room>
+                <type>lecture</type>
+            </booking>
+            <booking day="Tuesday">
+                <course>Computer Graphics</course>
+                <instructor>Brenda Fine</instructor>
+                <building>sw5</building>
+                <room>1850</room>
+                <type>lecture</type>
+            </booking>
+            <booking day="Thursday">
+                <course>Operating Systems</course>
+                <instructor>Mirela Gutica</instructor>
+                <building>sw3</building>
+                <room>1710</room>
+                <type>lecture</type>
+            </booking>
+        </timeslot>      
+    </periods>
+    
+    
+    
+    <courses>
+        <course name="BLAW3600">
+            <booking>
+                <day>Monday</day>
+                <time>9:30-11:20</time>
+                <building>SW1</building>
+                <room>4785</room>
+                <instructor>Catherine Ryan</instructor>
+                <type>Lab</type>
+            </booking> 
+    </courses>
+</schedule>
