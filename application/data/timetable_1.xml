@@ -2,6 +2,9 @@
 
 <!DOCTYPE schedule SYSTEM "timetable.dtd">
 <schedule>
+    <year>2016</year>
+    <term>Winter</term>
+    <set>4S</set>
     <periods>
         <timeslot time="12:30-1:30">
             <booking day="Monday">
@@ -30,15 +33,5 @@
     
     
     
-    <courses>
-        <course name="BLAW3600">
-            <booking>
-                <day>Monday</day>
-                <time>9:30-11:20</time>
-                <building>SW1</building>
-                <room>4785</room>
-                <instructor>Catherine Ryan</instructor>
-                <type>Lab</type>
-            </booking> 
-    </courses>
+
 </schedule>
