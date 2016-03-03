@@ -1,4 +1,4 @@
-<!ELEMENT schedule (year, term, set, (daysofweek|courses|periods))>
+<!ELEMENT schedule (year, term, set, daysofweek,courses,periods)>
 <!ELEMENT periods (timeslot*)>
 
 
