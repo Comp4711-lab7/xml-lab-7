@@ -132,10 +132,7 @@
             </booking>			
         </day>
     </daysofweek>
-        
-        
-        
-       
+
     <courses>
         <course name="BLAW3600">
             <booking time="9:30 - 11:20">
