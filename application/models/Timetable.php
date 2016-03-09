@@ -1,7 +1,7 @@
 <?php
 
     class Timetable extends CI_Model {
-        protected $xml = null;
+        public $xml = null;
         protected $daysinweek = array();
         protected $coursenames = array();
         protected $instructors = array();
@@ -18,9 +18,20 @@
                 $this->daysinweek[(string) $day['name']] = $day;
             }
 
-            foreach ($this->daysinweek->bookings as $book) {
-                $this->daysinweek[(string) $day['time']] = $book;
+            foreach ($this->xml->daysofweek->day->booking as $booking) {
+                $this->bookings[(string) $booking['time']] = $booking;
             }
+
+            //foreach ($this->daysinweek as $book) {
+            //    $this->bookings[(string) $book['time']] = $book;
+            //}
         }
 
+        public function getDaysInWeek() {
+            return $this->daysinweek;
+        }
+
+        public function getDaysBookings() {
+            return $this->bookings;
+        }
     }
