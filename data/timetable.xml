@@ -5,7 +5,7 @@
     <term>Winter</term>
     <set>4S</set>
     <daysofweek>
-        <day name="Monday">		
+        <day name="Monday">
             <booking time="9:30-11:20">
                 <coursename>BLAW 3600</coursename>
                 <instructor>Catherine Ryan</instructor>				
