@@ -3,7 +3,7 @@
 <table class="table">
 
     {daysinweek}
-        days in week</br>
+        {time}</br>
 
     {/daysinweek}
     </br>
