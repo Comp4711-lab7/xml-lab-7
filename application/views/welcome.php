@@ -3,8 +3,9 @@
 <table class="table">
 
    {daysinweek}
+    {coursename}
+    </br>
     {time}
- 
     </br>
    {/daysinweek}
     <?php

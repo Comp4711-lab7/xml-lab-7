@@ -7,31 +7,32 @@
         protected $periods = array();
 
         public function __construct() {
+            $i = 0;
             $this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
              foreach ($this->xml->daysofweek->day as $day) {
                 $booking = array('day' => '', 'time' => '', 'coursename' =>'' , 
                                     'instructor' => '' , 'building' => '', 
                                     'room' => '', 'type' => '');
-                echo "<pre>";
-               
-                var_dump($day);
-                
-                echo "</pre>";
+                //echo "<pre>";
+                //var_dump($day);
+               // echo "</pre>";
+
                 foreach($day->booking as $b){
-           
-                
-                    $booking['day'] = (string) $day['name'];
-                    $booking['time'] = (string) $b['time'];
-                    $booking['coursename'] = (string) $b->coursename;
-                    $booking['instructor'] = (string) $b->instructor;
-                    $booking['building'] = (string) $b->building;
-                    $booking['room'] = (string) $b->room;
-                    $booking['type'] = (string) $b->type; 
+                        $booking['day'] = (string)$day['name'];
+                        $booking['time'] = (string)$b['time'];
+                        $booking['coursename'] = (string)$b->coursename;
+                        $booking['instructor'] = (string)$b->instructor;
+                        $booking['building'] = (string)$b->building;
+                        $booking['room'] = (string)$b->room;
+                        $booking['type'] = (string)$b->type;
+
+                        $this->daysofweek[] =  new Booking($booking);
                 }
-                $this->daysofweek[] =  new Booking($booking);
-                
              }
- 
+           // echo "<pre>";
+             //var_dump($this->daysofweek);
+             //var_dump($i);
+            //echo "</pre>";
         }
 
         public function getDaysInWeek() {
@@ -52,7 +53,7 @@
 
     public function __construct($booking) {
         
-        echo "Constructing";
+        //echo "Constructing";
         //$this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
         $this->day = (string) $booking['day'];
         $this->time = (string) $booking['time'];
