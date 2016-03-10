@@ -1,17 +1,14 @@
 <?php
-
 class Timetable extends CI_Model {
-
     public $xml = null;
     protected $daysofweek = array();
     protected $courses = array();
     protected $periods = array();
-
     public function __construct() {
         $this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
         $this->setDaysInWeek();
+        $this->setPeriods();
     }
-
     private function setDaysInWeek() {
         foreach ($this->xml->daysofweek->day as $day) {
             foreach ($day->booking as $b) {
@@ -27,27 +24,37 @@ class Timetable extends CI_Model {
             }
         }
     }
-    
-    private function setCourses(){}
-    
-    private function setPeriods(){}
 
+    private function setCourses(){}
+
+    private function setPeriods(){
+        foreach ($this->xml->periods->timeslot as $slot) {
+            foreach ($slot->booking as $b) {
+                $booking = array();
+                $booking['day'] = (string) $b['day'];
+                $booking['time'] = (string) $slot['time'];
+                $booking['coursename'] = (string) $b->coursename;
+                $booking['instructor'] = (string) $b->instructor;
+                $booking['building'] = (string) $b->building;
+                $booking['room'] = (string) $b->room;
+                $booking['type'] = (string) $b->type;
+                $this->periods[] = new Booking($booking);
+            }
+        }
+    }
     public function getDaysOfWeek() {
         return $this->daysofweek;
     }
-    
+
     public function getPeriods(){
         return $this->periods;
     }
-    
+
     public function getCourses(){
         return $this->courses;
     }
-
 }
-
 class Booking extends CI_Model {
-
     public $day;
     public $time;
     public $coursename;
@@ -55,10 +62,7 @@ class Booking extends CI_Model {
     public $building;
     public $room;
     public $type;
-
     public function __construct($booking) {
-
-        echo "Constructing";
         $this->day = (string) $booking['day'];
         $this->time = (string) $booking['time'];
         $this->coursename = (string) $booking['coursename'];
@@ -67,5 +71,4 @@ class Booking extends CI_Model {
         $this->room = (string) $booking['room'];
         $this->type = (string) $booking['type'];
     }
-
 }
