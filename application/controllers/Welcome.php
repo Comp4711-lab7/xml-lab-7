@@ -12,12 +12,8 @@ class Welcome extends Application {
 	{
 		$this->data['title'] = 'XML Lab';
 		$this->data['pagebody'] = 'welcome';
-		$this->data['daysinweek'] = $this->timetable->getDaysInWeek();
-		$this->data['bookings'] = $this->timetable->getDaysBookings();
-		//var_dump($this->data['daysinweek']);
-		echo '<pre>';
-		var_dump($this->data['bookings']);
-		echo '</pre>';
+		$this->data['daysofweek'] = $this->timetable->getDaysOfWeek();
+		$this->data['courses'] = $this->timetable->getCourses();
 		$this->render();
 
 	}
