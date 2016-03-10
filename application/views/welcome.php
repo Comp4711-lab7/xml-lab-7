@@ -22,4 +22,15 @@
         {building}: {room}</br>
         {type}</br></br>
     {/periods}
+    <hr>
+
+    <h2>Courses</h2>
+    {courses}
+        COURSE:
+        {coursename}</br>
+        {day}: {time}</br>
+        {instructor}</br>
+        {building}: {room}</br>
+        {type}</br></br>
+    {/courses}
 </table>
