@@ -2,36 +2,65 @@
 
     class Timetable extends CI_Model {
         public $xml = null;
-        protected $daysinweek = array();
-        protected $coursenames = array();
-        protected $instructors = array();
-        protected $buildings = array();
-        protected $bookings = array();
-        protected $rooms = array();
-        protected $types = array();
+        protected $daysofweek = array();
+        protected $courses = array();
+        protected $periods = array();
 
         public function __construct() {
             $this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
-
-            // Populate days of the week
-            foreach ($this->xml->daysofweek->day as $day) {
-                $this->daysinweek[(string) $day['name']] = $day;
-            }
-
-            foreach ($this->xml->daysofweek->day->booking as $booking) {
-                $this->bookings[(string) $booking['time']] = $booking;
-            }
-
-            //foreach ($this->daysinweek as $book) {
-            //    $this->bookings[(string) $book['time']] = $book;
-            //}
+             foreach ($this->xml->daysofweek->day as $day) {
+                $booking = array('day' => '', 'time' => '', 'coursename' =>'' , 
+                                    'instructor' => '' , 'building' => '', 
+                                    'room' => '', 'type' => '');
+                echo "<pre>";
+               
+                var_dump($day);
+                
+                echo "</pre>";
+                foreach($day->booking as $b){
+           
+                
+                    $booking['day'] = (string) $day['name'];
+                    $booking['time'] = (string) $b['time'];
+                    $booking['coursename'] = (string) $b->coursename;
+                    $booking['instructor'] = (string) $b->instructor;
+                    $booking['building'] = (string) $b->building;
+                    $booking['room'] = (string) $b->room;
+                    $booking['type'] = (string) $b->type; 
+                }
+                $this->daysofweek[] =  new Booking($booking);
+                
+             }
+ 
         }
 
         public function getDaysInWeek() {
-            return $this->daysinweek;
-        }
-
-        public function getDaysBookings() {
-            return $this->bookings;
+            return $this->daysofweek;
         }
     }
+    
+    
+    class Booking extends CI_Model {
+        //protected $xml = null;
+        public $day;
+        public $time;
+        public $coursename;
+        public $instructor;
+        public $building;
+        public $room;
+        public $type;
+
+    public function __construct($booking) {
+        
+        echo "Constructing";
+        //$this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
+        $this->day = (string) $booking['day'];
+        $this->time = (string) $booking['time'];
+        $this->coursename = (string) $booking['coursename'];
+        $this->instructor = (string) $booking['instructor'];
+        $this->building = (string) $booking['building'];
+        $this->room = (string) $booking['room'];
+        $this->type = (string) $booking['type'];
+    }
+
+}
