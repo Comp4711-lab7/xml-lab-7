@@ -8,7 +8,9 @@ class Timetable extends CI_Model {
         $this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
         $this->setDaysInWeek();
         $this->setPeriods();
+        $this->setCourses();
     }
+
     private function setDaysInWeek() {
         foreach ($this->xml->daysofweek->day as $day) {
             foreach ($day->booking as $b) {
@@ -24,8 +26,22 @@ class Timetable extends CI_Model {
             }
         }
     }
-
-    private function setCourses(){}
+    
+    private function setCourses(){
+        foreach ($this->xml->courses->course as $course) {
+            foreach ($course->booking as $b) {
+                $booking = array();
+                $booking['coursename'] = (string) $course['name'];
+                $booking['time'] = (string) $b['time'];
+                $booking['day'] = (string) $b->dayofweek;
+                $booking['instructor'] = (string) $b->instructor;
+                $booking['building'] = (string) $b->building;
+                $booking['room'] = (string) $b->room;
+                $booking['type'] = (string) $b->type;
+                $this->courses[] = new Booking($booking);
+            }
+        }
+    }
 
     private function setPeriods(){
         foreach ($this->xml->periods->timeslot as $slot) {

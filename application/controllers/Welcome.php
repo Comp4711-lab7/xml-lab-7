@@ -14,7 +14,7 @@ class Welcome extends Application {
 		$this->data['pagebody'] = 'welcome';
 		$this->data['daysofweek'] = $this->timetable->getDaysOfWeek();
 		$this->data['periods'] = $this->timetable->getPeriods();
+		$this->data['courses'] = $this->timetable->getCourses();
 		$this->render();
-
 	}
 }
