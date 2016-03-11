@@ -265,7 +265,7 @@
                 <type>Seminar</type>
             </booking>
             <booking day="Tuesday">
-                <coursename>Web Application Development with ASP.NET</coursename>
+                <coursename>ASP 4976</coursename>
                 <instructor>Medhat Elmasry</instructor>
                 <building>SE12</building>
                 <room>312</room>
@@ -297,7 +297,7 @@
         </timeslot>
         <timeslot time="10:30-12:20">
             <booking day="Friday">
-                <coursename>Web Application Development with ASP.NET</coursename>
+                <coursename>ASP 4976</coursename>
                 <instructor>Medhat Elmasry</instructor>
                 <building>SE12</building>
                 <room>308</room>
@@ -338,7 +338,7 @@
         </timeslot>   
         <timeslot time="12:30-13:20">
             <booking day="Thursday">
-                <coursename>Web Application Development with ASP.NET</coursename>
+                <coursename>ASP 4976</coursename>
                 <instructor>Medhat Elmasry</instructor>
                 <building>SE12</building>
                 <room>308</room>
