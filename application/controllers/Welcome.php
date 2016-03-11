@@ -10,13 +10,14 @@ class Welcome extends Application {
 
 	public function index()
 	{
+		$this->load->helper('form');
 		$this->data['title'] = 'XML Lab';
 		$this->data['pagebody'] = 'welcome';
 		$this->data['daysofweek'] = $this->timetable->getDaysOfWeek();
 		$this->data['periods'] = $this->timetable->getPeriods();
 		$this->data['courses'] = $this->timetable->getCourses();
-                $this->data['daysearch'] = $this->timetable->getDays();
-                $this->data['timeslotsearch'] = $this->timetable->getTimeSlots();
+		$this->data['daysearch'] = form_dropdown('day',$this->timetable->getDays());
+		$this->data['timeslotsearch'] = form_dropdown('time',$this->timetable->getTimeSlots());
 		$this->render();
 	}
 }
