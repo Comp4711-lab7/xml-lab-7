@@ -6,11 +6,11 @@ class Welcome extends Application {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('timetable');
+		$this->load->helper('form');
 	}
 
 	public function index()
 	{
-		$this->load->helper('form');
 		$this->data['title'] = 'XML Lab';
 		$this->data['pagebody'] = 'welcome';
 		$this->data['daysofweek'] = $this->timetable->getDaysOfWeek();
@@ -18,6 +18,18 @@ class Welcome extends Application {
 		$this->data['courses'] = $this->timetable->getCourses();
 		$this->data['daysearch'] = form_dropdown('day',$this->timetable->getDays());
 		$this->data['timeslotsearch'] = form_dropdown('time',$this->timetable->getTimeSlots());
+		$this->render();
+	}
+
+	function results()
+	{
+		$this->data['title'] = 'XML Lab Results';
+		$this->data['pagebody'] = 'results';
+		$this->input->post('day');
+		$this->input->post('time');
+
+		// call search function
+
 		$this->render();
 	}
 }
