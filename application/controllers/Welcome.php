@@ -15,6 +15,8 @@ class Welcome extends Application {
 		$this->data['daysofweek'] = $this->timetable->getDaysOfWeek();
 		$this->data['periods'] = $this->timetable->getPeriods();
 		$this->data['courses'] = $this->timetable->getCourses();
+                $this->data['daysearch'] = $this->timetable->getDays();
+                $this->data['timeslotsearch'] = $this->timetable->getTimeSlots();
 		$this->render();
 	}
 }
