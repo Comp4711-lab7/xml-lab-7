@@ -69,8 +69,7 @@ class Timetable extends CI_Model {
     public function getCourses(){
         return $this->courses;
     }
-    
-    
+
     public function getDays() {
         
         $days = array('Monday' => 'Monday', 'Tuesday' => 'Tuesday', 'Wednesday' => 'Wednesday', 'Thursday' => 'Thursday', 'Friday' => 'Friday');
@@ -90,12 +89,34 @@ class Timetable extends CI_Model {
             "1:30-2:20" => "1:30pm to 2:20pm",
             "12:30-1:20" => "12:30pm to 1:20pm",
             "2:30-5:20" => "2:30pm to 5:20pm"
-            );
-            
+            );    
         return $timeslots;
-        
-        
     }
+
+    public function searchDaysOfWeek($day, $timeslot){
+        foreach($this->daysofweek as $booking){
+            if($booking->day == $day && $booking->time == $timeslot){
+                return $booking;
+            }
+        }
+    }
+    
+    public function searchCourses($day, $timeslot){
+        foreach($this->courses as $booking){
+            if($booking->day == $day && $booking->time == $timeslot){
+                    return $booking;
+            }
+        }
+    }
+    
+    public function searchPeriods($day, $timeslot){
+        foreach($this->periods as $booking){
+            if($booking->day == $day && $booking->time == $timeslot){
+                    return $booking;
+            }
+        }
+    }
+
 }
 class Booking extends CI_Model {
     public $day;
