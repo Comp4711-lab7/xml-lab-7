@@ -184,7 +184,7 @@
                 <room>325</room>
                 <type>seminar</type>
             </booking>
-            <booking time="2:30-5:20">
+            <booking time="14:30-17:20">
                 <dayofweek>Friday</dayofweek>
                 <instructor>D'arcy Smith</instructor>
                 <building>SE12</building>
@@ -200,14 +200,14 @@
                 <room>1850</room>
                 <type>Lecture</type>
             </booking>
-            <booking time="3:30-5:20">
+            <booking time="15:30-17:20">
                 <dayofweek>Tuesday</dayofweek>
                 <instructor>Joseph Lo</instructor>
                 <building>SE12</building>
                 <room>320</room>
                 <type>lab</type>
             </booking>
-            <booking time="12:30-1:20">
+            <booking time="12:30-13:20">
                 <dayofweek>Friday</dayofweek>
                 <instructor>Brenda Fine</instructor>
                 <building>SW3</building>
@@ -239,7 +239,7 @@
                 <room>308</room>
                 <type>Seminar</type>
             </booking>
-            <booking time="12:30-1:20">
+            <booking time="12:30-13:20">
                 <dayofweek>Thursday</dayofweek>
                 <instructor>Medhat Elmasry</instructor>
                 <building>SE12</building>
@@ -256,7 +256,7 @@
         </course>
     </courses>
     <periods>
-        <timeslot time="8:30-10:30">
+        <timeslot time="8:30-10:20">
             <booking day="Tuesday">
                 <coursename>IOS 4977</coursename>
                 <instructor>D'Arcy Smith</instructor>
@@ -279,7 +279,7 @@
                 <type>Lecture</type>
             </booking>
         </timeslot>
-        <timeslot time="9:30-11:30">
+        <timeslot time="9:30-11:20">
             <booking day="Monday">
                 <coursename>BLAW 3600</coursename>
                 <instructor>Catherine</instructor>
@@ -295,7 +295,7 @@
                 <type>lab</type>
             </booking>
         </timeslot>
-        <timeslot time="10:30-12:30">
+        <timeslot time="10:30-12:20">
             <booking day="Friday">
                 <coursename>Web Application Development with ASP.NET</coursename>
                 <instructor>Medhat Elmasry</instructor>
@@ -304,7 +304,7 @@
                 <type>Seminar</type>
             </booking>
         </timeslot>
-        <timeslot time="11:30-12:30">
+        <timeslot time="11:30-12:20">
             <booking day="Monday">
                 <coursename>OS 4735</coursename>
                 <instructor>Mirela Gutica</instructor>
@@ -327,7 +327,7 @@
                 <type>lecture</type>
             </booking>
         </timeslot> 
-        <timeslot time="12:30-2:30">
+        <timeslot time="12:30-14:20">
             <booking day="Monday">
                 <coursename>OS 4735</coursename>
                 <instructor>Mirela Gutica</instructor>
@@ -336,7 +336,7 @@
                 <type>Lab</type>
             </booking>
         </timeslot>   
-        <timeslot time="12:30-1:30">
+        <timeslot time="12:30-13:20">
             <booking day="Thursday">
                 <coursename>Web Application Development with ASP.NET</coursename>
                 <instructor>Medhat Elmasry</instructor>
@@ -352,7 +352,7 @@
                 <type>Lecture</type>
             </booking>
         </timeslot>  
-        <timeslot time="1:30-2:30">
+        <timeslot time="13:30-14:20">
             <booking day="Wednesday">
                 <coursename>OS 4735</coursename>
                 <instructor>Mirela Gutica</instructor>
@@ -361,7 +361,7 @@
                 <type>lecture</type>
             </booking>
         </timeslot>
-        <timeslot time ="2:30 - 3:30">
+        <timeslot time ="14:30-15:20">
             <booking day="Tuesday">
                 <coursename>SDEV 4711</coursename>
                 <instructor>Jim Parry</instructor>
@@ -370,7 +370,7 @@
                 <type>lecture</type>
             </booking>
         </timeslot>
-        <timeslot time="2:30-5:30">
+        <timeslot time="14:30-17:20">
             <booking day="friday">
                 <coursename>IOS 4977</coursename>
                 <instructor>D'Arcy Smith</instructor>
@@ -379,7 +379,7 @@
                 <type>Seminar</type>
             </booking>
         </timeslot>
-        <timeslot time="3:30-5:30">
+        <timeslot time="15:30-17:20">
             <booking day="Tuesday">
                 <coursename>GRAPHICS 4560</coursename>
                 <instructor>Joseph Lo</instructor>
