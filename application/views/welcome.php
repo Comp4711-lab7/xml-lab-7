@@ -1,6 +1,10 @@
 
 <div>
     <h2>Search</h2>
+    <form>
+        {daysearch} {timeslotsearch}
+        <button type="submit">search</button>
+    </form>
 
 </div>
 
