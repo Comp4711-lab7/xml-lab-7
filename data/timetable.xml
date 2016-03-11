@@ -147,7 +147,7 @@
             </booking>
         </course>
         <course name="OS 4735">
-            <booking time="11:20-12:20">
+            <booking time="11:30-12:20">
                 <dayofweek>Monday</dayofweek>
                 <instructor>Mirela Gutica</instructor>
                 <building>SW1</building>
