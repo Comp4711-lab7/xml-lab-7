@@ -6,16 +6,7 @@
         <button type="submit">search</button>
     </form>
 </div>
-<?php
- //  print_r($cSearch);
-//  print_r($pSearch);
-  //  print_r($dSearch);
-?>
 
-
-    {Search}
-        {coursename}
-    {/Search}
     
     <div class="container">
         <div class="row">

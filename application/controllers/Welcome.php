@@ -11,10 +11,7 @@ class Welcome extends Application {
 
 	public function index()
 	{
-            
-                $this->data['Search'][] = $this->timetable->searchCourses("Monday", "11:30-12:20");
-                $this->data['Search'][] = $this->timetable->searchPeriods("Monday", "11:30-12:20");
-                $this->data['Search'][]= $this->timetable->searchDaysOfWeek("Monday", "11:30-12:20");
+
 		$this->data['title'] = 'XML Lab';
 		$this->data['pagebody'] = 'welcome';
 		$this->data['daysofweek'] = $this->timetable->getDaysOfWeek();
@@ -27,13 +24,45 @@ class Welcome extends Application {
 
 	function results()
 	{
+            
+                
+                $c = $this->timetable->searchCourses($this->input->post('day'), $this->input->post('time'));
+                $p = $this->timetable->searchPeriods($this->input->post('day'), $this->input->post('time'));
+                $d = $this->timetable->searchDaysOfWeek($this->input->post('day'), $this->input->post('time'));
+                $this->data['cSearch'] = "no results";
+                $this->data['pSearch'] = "no results";
+                $this->data['dSearch'] = "no results";
+                    if($c){
+                        $this->data['cSearch'] = $this->BookingToString($c);
+                    }
+                    if($p){
+                        $this->data['pSearch'] = $this->BookingToString($p);
+                    }
+                    if($d){
+                        $this->data['dSearch'] = $this->BookingToString($d);
+                    }
+                
+                $this->data['bingo'] = "NOT A BINGO";
+                if($this->data['cSearch'] != "no results" && $this->data['pSearch'] != "no results" && $this->data['dSearch'] != "no results"){
+                    $this->data['bingo'] = "BINGO";
+                }
+                
 		$this->data['title'] = 'XML Lab Results';
 		$this->data['pagebody'] = 'results';
-		$this->input->post('day');
-		$this->input->post('time');
 
 		// call search function
 
 		$this->render();
 	}
+        
+        
+            public function BookingToString($booking){
+                $string = "COURSE: " . $booking->coursename . PHP_EOL  
+                        . $booking->day  . " : " . $booking->time . PHP_EOL  
+                        . $booking->instructor . PHP_EOL  
+                        . $booking->building . " : " . $booking->room . PHP_EOL  
+                        . $booking->type;
+                return $string;
+                
+    }
 }
