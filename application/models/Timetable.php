@@ -1,9 +1,11 @@
 <?php
 class Timetable extends CI_Model {
+
     public $xml = null;
     protected $daysofweek = array();
     protected $courses = array();
     protected $periods = array();
+
     public function __construct() {
         $this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
         $this->setDaysInWeek();
@@ -11,6 +13,9 @@ class Timetable extends CI_Model {
         $this->setCourses();
     }
 
+    /**
+     * Get all bookings in Days Facet and set to daysofweek property
+     */
     private function setDaysInWeek() {
         foreach ($this->xml->daysofweek->day as $day) {
             foreach ($day->booking as $b) {
@@ -26,7 +31,10 @@ class Timetable extends CI_Model {
             }
         }
     }
-    
+
+    /**
+     * Get all bookings in Days Courses and set to daysofweek property
+     */
     private function setCourses(){
         foreach ($this->xml->courses->course as $course) {
             foreach ($course->booking as $b) {
@@ -43,6 +51,9 @@ class Timetable extends CI_Model {
         }
     }
 
+    /**
+     * Get all bookings in Periods Facet and set to daysofweek property
+     */
     private function setPeriods(){
         foreach ($this->xml->periods->timeslot as $slot) {
             foreach ($slot->booking as $b) {
@@ -58,6 +69,7 @@ class Timetable extends CI_Model {
             }
         }
     }
+
     public function getDaysOfWeek() {
         return $this->daysofweek;
     }
@@ -70,13 +82,20 @@ class Timetable extends CI_Model {
         return $this->courses;
     }
 
+    /**
+     * Generates array of values for days slot dropdown menu
+     * @return array
+     */
     public function getDays() {
-        
         $days = array('Monday' => 'Monday', 'Tuesday' => 'Tuesday', 'Wednesday' => 'Wednesday', 'Thursday' => 'Thursday', 'Friday' => 'Friday');
         return $days;
         
     }
-    
+
+    /**
+     * Generates array of values for time slot dropdown menu
+     * @return array
+     */
     public function getTimeSlots(){
         $timeslots = array (
             "8:30-10:20" => "8:30 to 10:20",
@@ -93,6 +112,12 @@ class Timetable extends CI_Model {
         return $timeslots;
     }
 
+    /**
+     * Search the Day facet
+     * @param $day the day value from input
+     * @param $timeslot the time value from input
+     * @return mixed bookings on that day and time
+     */
     public function searchDaysOfWeek($day, $timeslot){
         foreach($this->daysofweek as $booking){
             if($booking->day == $day && $booking->time == $timeslot){
@@ -100,7 +125,13 @@ class Timetable extends CI_Model {
             }
         }
     }
-    
+
+    /**
+     * Search the Courses facet
+     * @param $day the day value from input
+     * @param $timeslot the time value from input
+     * @return mixed bookings on that day and time
+     */
     public function searchCourses($day, $timeslot){
         foreach($this->courses as $booking){
             if($booking->day == $day && $booking->time == $timeslot){
@@ -108,7 +139,13 @@ class Timetable extends CI_Model {
             }
         }
     }
-    
+
+    /**
+     * Search the Periods facet
+     * @param $day the day value from input
+     * @param $timeslot the time value from input
+     * @return mixed bookings on that day and time
+     */
     public function searchPeriods($day, $timeslot){
         foreach($this->periods as $booking){
             if($booking->day == $day && $booking->time == $timeslot){
@@ -118,7 +155,13 @@ class Timetable extends CI_Model {
     }
 
 }
+
+/**
+ * Class Booking
+ * Represents a single booking
+ */
 class Booking extends CI_Model {
+
     public $day;
     public $time;
     public $coursename;
@@ -126,6 +169,7 @@ class Booking extends CI_Model {
     public $building;
     public $room;
     public $type;
+
     public function __construct($booking) {
         $this->day = (string) $booking['day'];
         $this->time = (string) $booking['time'];
@@ -135,9 +179,4 @@ class Booking extends CI_Model {
         $this->room = (string) $booking['room'];
         $this->type = (string) $booking['type'];
     }
-    
-    
-
-
-
 }

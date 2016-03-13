@@ -13,8 +13,7 @@ class Welcome extends Application
 
     public function index()
     {
-
-        $this->data['title'] = 'XML Lab';
+        $this->data['title'] = 'CST Web and Mobile Time Table';
         $this->data['pagebody'] = 'welcome';
         $this->data['daysofweek'] = $this->timetable->getDaysOfWeek();
         $this->data['periods'] = $this->timetable->getPeriods();
@@ -24,53 +23,60 @@ class Welcome extends Application
         $this->render();
     }
 
+    /**
+     * Find the bookings with specified days the time in each facets
+     */
     function results()
     {
+        //find bookings in each facet
         $c = $this->timetable->searchCourses($this->input->post('day'), $this->input->post('time'));
         $p = $this->timetable->searchPeriods($this->input->post('day'), $this->input->post('time'));
         $d = $this->timetable->searchDaysOfWeek($this->input->post('day'), $this->input->post('time'));
-//        $this->data['courses'] = "no results";
-//        $this->data['periods'] = "no results";
-//        $this->data['daysofweek'] = "no results";
+        $this->data['cResult'] = "no results";
+        $this->data['pResult'] = "no results";
+        $this->data['dResult'] = "no results";
 
+        //check if result is null
+        // set courses, periods, daysofweek data to empty array if their searched returns null
         if ($c) {
             $this->data['courses'] = $this->BookingToString($c);
+            $this->data['cResult'] = "";
         }else{
             $this->data['courses'] = array();
         }
         if ($p) {
             $this->data['periods'] = $this->BookingToString($p);
+            $this->data['pResult'] = "";
         }else{
             $this->data['periods'] = array();
         }
         if ($d) {
             $this->data['daysofweek'] = $this->BookingToString($d);
+            $this->data['dResult'] = "";
         }else{
             $this->data['daysofweek'] = array();
         }
 
-//        $this->data['bingo'] = "NOT A BINGO";
-//        if ($this->data['courses'] != "no results" && $this->data['periods'] != "no results" && $this->data['daysofweek'] != "no results") {
-//            $this->data['bingo'] = "BINGO";
-//        }
+        //check if any of the search returns null
+        $this->data['bingo'] = "NOT A BINGO";
+        if ($this->data['cResult'] != "no results" && $this->data['pResult'] != "no results" && $this->data['dResult'] != "no results") {
+            $this->data['bingo'] = "BINGO";
+        }
 
-        $this->data['title'] = 'XML Lab Results';
+        $this->data['title'] = 'Search Results';
         $this->data['pagebody'] = 'results';
-
-        // call search function
 
         $this->render();
     }
 
 
+    /**
+     * Convert booking to String for rendering in the view
+     * @param $booking
+     * @return array
+     */
     public function BookingToString($booking)
     {
-//        $string = "COURSE: " . $booking->coursename . PHP_EOL
-//            . $booking->day . " : " . $booking->time . PHP_EOL
-//            . $booking->instructor . PHP_EOL
-//            . $booking->building . " : " . $booking->room . PHP_EOL
-//            . $booking->type;
-//        return $string;
         $b = array();
         $b['day'] = (string) $booking->day;
         $b['time'] = (string) $booking->time;
@@ -81,6 +87,5 @@ class Welcome extends Application
         $b['type'] = (string) $booking->type;
 
         return array($b);
-
     }
 }
